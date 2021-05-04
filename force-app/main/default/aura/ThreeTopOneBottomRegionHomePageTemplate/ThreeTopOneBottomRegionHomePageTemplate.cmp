@@ -1,0 +1,30 @@
+<aura:component implements="lightning:homeTemplate" description="Three Top Region + One Bottom Home Page Template">
+    <aura:attribute name="left" type="Aura.Component[]" />
+    <aura:attribute name="right" type="Aura.Component[]" />
+    <aura:attribute name="middle" type="Aura.Component[]" />
+    <aura:attribute name="bottom" type="Aura.Component[]" />
+
+    <div>
+        <lightning:layout>
+            <lightning:layoutItem size="{! $Browser.isDesktop ? '4' : '6' }"
+                                  class="slds-m-right_small">
+                {!v.left}
+            </lightning:layoutItem>
+            <lightning:layoutItem size="{! $Browser.isDesktop ? '4' : '6' }"
+                                  class="slds-m-right_small">
+                {!v.middle}
+            </lightning:layoutItem>
+            <lightning:layoutItem size="{! $Browser.isDesktop ? '4' : '6' }"
+                                  class="slds-m-left_small">
+                {!v.right}
+            </lightning:layoutItem>
+        </lightning:layout>
+    </div>
+    <div>
+        <lightning:layout horizontalAlign="spread" pullToBoundary="small"> 
+            <lightning:layoutItem size="12" flexibility="grow" padding="around-small">
+                {!v.bottom}
+            </lightning:layoutItem>
+        </lightning:layout>
+    </div>
+</aura:component>
